@@ -1,0 +1,54 @@
+CREATE TABLE Ware_House_Product(
+Product_ID int NOT NULL primary key,
+Product_name varchar(30),
+Description varchar(50),
+Item_price int,
+Qty_on_hand int,
+Qty_on_order int)
+
+
+CREATE TABLE Purchase_Order(
+Staff_approaved varchar(30),
+Estemated_cost int,
+Total_cost int,
+Date_approaved date)
+
+
+CREATE TABLE Supplier(
+Supp_ID int NOT NULL primary key,
+Supp_name varchar(30),
+adress varchar(30)
+)
+    
+CREATE TABLE Delivery(
+Delivery_ID int NOT NULL primary key,
+Supp_ID int references Supplier(Supp_ID),
+Delivered_date date,
+Delivered_by varchar(30),
+Delivered_amount int,
+Term int
+)
+
+CREATE TABLE Supplier_Product(
+Product_ID int references ware_house_product(Product_ID),
+Supp_ID int references supplier(Supp_ID),
+Product_Price int,
+Description varchar(50)
+)
+
+CREATE TABLE Purchase_Order_Product(
+Product_ID int references Ware_House_Product(Product_ID),
+Pur_ord_id int references Purchase_Order(Pur_ord_id),
+Quatity int,
+Estimated_amount int
+)
+
+CREATE TABLE Delivery_Product(
+Delivery_ID int references Delivery(Delivery_ID),
+Product_ID int references Ware_House_Product(Product_ID),
+Qty_delivered int,
+Qty_accepted int
+)
+
+
+  
