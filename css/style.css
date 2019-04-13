@@ -1,0 +1,115 @@
+.fas {
+	font-size: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.fa-cog {
+	margin-right: 0;
+}
+
+.top {
+	background: rgb(0,36,4);
+	background: linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(21,143,108,1) 0%, rgba(12,173,167,1) 0%, rgba(30,134,145,1) 0%, rgba(18,187,221,1) 44%, rgba(0,255,169,1) 100%);
+}
+
+.bottom {
+	background: rgb(0,36,4);
+	background: linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(21,143,108,1) 0%, rgba(12,173,167,1) 0%, rgba(30,134,145,1) 0%, rgba(18,187,221,1) 44%, rgba(0,255,169,1) 100%);
+}
+
+.li-1 {
+	font-size: 22px;
+	font-style: none;
+}
+
+#navbar-01 {
+	padding-top: 0;
+}
+
+#div-01 {
+	padding-left: 0;
+}
+
+.navbar-brand {
+	position: absolute;
+	
+}
+
+.nav-link.text-dark:hover {
+    color: #999 !important;
+}
+
+.custom-badge {
+    position: relative;
+    top: -7px;
+    right: -13px;
+    font-size: .7em;
+}
+.container-nav {
+    max-width: 1140px;
+    padding-right: 0;
+    padding-left: 200px;
+    margin-right: 200px;
+    margin-left: auto;
+}
+
+.container-nav-1 {
+	margin-left: 50px;
+	margin-right: 20px;
+}
+
+@media (max-width: 767.98px) { 
+    .container-nav {
+        max-width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+}
+
+.active-pink input[type=text] {
+    border-bottom: 1px solid #f48fb1;
+    box-shadow: 0 1px 0 0 #f48fb1;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #808080;
+  overflow-x: hidden;
+  padding-top: 20px;
+  top: 105px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;	
+  display: block;
+  
+  
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  margin-top: 105px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
