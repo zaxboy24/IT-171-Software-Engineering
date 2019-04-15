@@ -1,0 +1,75 @@
+.custom-0 {
+	background: rgb(0,36,4);
+	background: linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(21,143,108,1) 0%, rgba(12,173,167,1) 0%, rgba(30,134,145,1) 0%, rgba(18,187,221,1) 44%, rgba(0,255,169,1) 100%);
+	text-decoration: none;
+	height: 140px;
+}
+
+.nav-item  a {
+	color: white;
+}
+
+.nav-item  a:hover {
+	text-decoration: none;
+}
+
+aside {
+	
+	padding-left: 15px;
+	padding-right: 20px;
+}
+
+.custom-1 {
+	padding: 5px 5px;
+}
+
+.custom-2 {
+	margin-top: 30px;
+}
+
+.custom-3 {
+	padding-left: 60px;
+	padding-right: 60px;
+	font-size: 19px;
+}
+
+.custom-4 {
+	padding: 20px 10px;
+}
+
+.custom-5 {
+	margin-left: 90px;
+	padding: 0 20px 0 0;
+	width: 300px;
+}
+
+.custom-6 {
+	padding: 20px 20px 20px 50px;
+}
+
+.custom-7 {
+	margin-right: 13px;
+	padding-top: 15px;
+	
+}
+
+.custom-8 {
+	font-size: 18px;
+	margin-top: 5px;
+}
+
+.custom-8 a {
+	color: #305f72;
+}
+
+.custom-8 a:hover{
+	text-decoration: none;
+}
+
+.custom-9 {
+	padding-bottom: 15px;
+}
+
+.custom-10 {
+	background-color: gray;
+}
