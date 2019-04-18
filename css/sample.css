@@ -1,12 +1,13 @@
 .custom-0 {
-	background: rgb(0,36,4);
-	background: linear-gradient(90deg, rgba(0,36,4,1) 0%, rgba(21,143,108,1) 0%, rgba(12,173,167,1) 0%, rgba(30,134,145,1) 0%, rgba(18,187,221,1) 44%, rgba(0,255,169,1) 100%);
+	background: rgb(1,153,184);
+	background: linear-gradient(90deg, rgba(1,153,184,1) 0%, rgba(12,114,134,1) 100%);
 	text-decoration: none;
 	height: 140px;
 }
 
 .nav-item  a {
 	color: white;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-brand {
@@ -103,3 +104,10 @@ select {
 	padding-bottom: 6px;
 }
 
+.pt-3-half {
+padding-top: 1.4rem;
+}
+
+.container {
+	padding-top: 5px;
+}
