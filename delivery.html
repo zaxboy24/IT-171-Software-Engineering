@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Title</title>
+		<title>Supply Hub</title>
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="font-awesome\fontawesome-free-5.8.1-web\css\all.css">
 		<link rel="stylesheet" type="text/css" href="css\sample.css">
 		<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css\preloader.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
 	 </head>
 	<body>
 	
+		<div class="loader">
+		<img src="images\preloader.gif" alt="Loading..." />
+		</div>
+	
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
-				<a class="text-dark navbar-brand" href="#"><span><img class="custom-12" src="images\icon-2.png"> Supply Hub</span></a>
+				<a class="text-dark navbar-brand" href="#"><p id="custom-nav">Supply Hub</p></a>
 				<ul class="nav li list-unstyled">
 					<li class="nav-item pl-4 pr-4">
 						<a href="profile.html" >Profile</a>
@@ -26,13 +31,13 @@
 			<div class= "custom-1 custom-2">
 				<ul class="nav li list-unstyled d-flex justify-content-center custom-3">
 					<li class="nav-item custom-3">
-						<a href="#"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
+						<a href="manage_supply.html"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
 					<li class="nav-item custom-3">
 						<a href="purchase-order.html"><span><i class="fas fa-clipboard-list"></i> Purchase Orders</span></a>
 					</li>
 					<li class="nav-item custom-3">
-						<a href="#"><span><i class="fas fa-truck"></i> Deliveries</span></a>
+						<a href="delivery.html"><span style="color: #FFD700"><i class="fas fa-truck"></i> Deliveries</span></a>
 					</li>
 				</ul>
 			</div>
@@ -46,9 +51,6 @@
 					</li>
 					<li class="custom-8">
 						<a href="#"><span><i class="far fa-check-circle custom-7"></i>Confirmed</span></a>
-					</li>
-					<li class="custom-8">
-						<a href="#"><span><i class="fas fa-history custom-7"></i>History</span></a>
 					</li>
 				</ul>
 			</div>
@@ -67,9 +69,196 @@
 						<input class="rounded-pill" type="search" id="site-search" name="q" placeholder="  Search">
 					</form>
 				</div>
-				<div>
-					//List
+				
+				<div class="card custom-11 d-flex">
+  <div class="card-body">
+    <div id="table" class="">
+      <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
+        <tr>
+          <th class="text-center">Purchase Order ID</th>
+          <th class="text-center" id="product-name">Product Names</th>
+          <th class="text-center">Purchaser Name</th>
+          <th class="text-center">Address</th>
+          <th class="text-center">Term</th>
+		  <th class="text-center">Status</th>
+          <th class="text-center">Action</th>
+        </tr>
+        <tr>
+          <td class="pt-3-half" >PO-01</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >30 Days</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
 				</div>
+			</div>
+          </td>
+        </tr>
+        <!-- This is our clonable table line -->
+			<tr>
+          <td class="pt-3-half" >PO-02</td>
+          <td class="pt-3-half custom-13" title="Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus" >Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >COD</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-warning">Pending</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-03</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >15 Days</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-warning">Pending</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-04</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >PIA</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-05</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >60 Days</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-warning">Pending</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-06</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >DOR</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-07</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >EOM</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-08</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Deepends">Deepends</td>
+          <td class="pt-3-half custom-13" >Tibanga, Iligan City</td>
+          <td class="pt-3-half custom-13" >PIA</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-warning">Pending</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+		<tr>
+          <td class="pt-3-half" >PO-09</td>
+          <td class="pt-3-half custom-13" title="Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more" >Laptop, Monitor, Keyboard, Mouse, Cooler, Desk Fan, TV, House and lot and many more</td>
+          <td class="pt-3-half custom-13" title="Sohaile Batabor">Sohaile Batabor</td>
+          <td class="pt-3-half custom-13" >Gaisano Mall, Ilign City</td>
+          <td class="pt-3-half custom-13" >COD</td>
+		  <td class="pt-3-half custom-13"><span class="badge badge-pill badge-warning">Pending</span></td>
+          <td>
+            <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+								...
+					</div>
+				</div>
+			</div>
+          </td>
+        </tr>
+		
+      </table>
+    </div>
+  </div>
+</div>
+				
 			</div>
 		</div>
 		
@@ -78,6 +267,7 @@
     <script src="popper-js\popper.min.js"></script>
     <script src="js\bootstrap.min.js"></script>
 	<script src="js\JavaScript.js"></script>
+	<script src="js\preloader.js"></script>
 		
 	</body>
 </html>
