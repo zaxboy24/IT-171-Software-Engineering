@@ -7,15 +7,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Title</title>
+		<title>Supply Hub</title>
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="font-awesome\fontawesome-free-5.8.1-web\css\all.css">
 		<link rel="stylesheet" type="text/css" href="css\sample.css">
 		<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css\preloader.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
 	 </head>
 	<body>
+	
+		<div class="loader">
+		<img src="images\preloader.gif" alt="Loading..." />
+		</div>
 	
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
@@ -38,7 +43,7 @@
 						<a href="purchase-order.php"><span><i class="fas fa-clipboard-list"></i> Purchase Orders</span></a>
 					</li>
 					<li class="nav-item custom-3">
-						<a href="#"><span><i class="fas fa-truck"></i> Deliveries</span></a>
+						<a href="delivery.html"><span style="color: #FFD700"><i class="fas fa-truck"></i> Deliveries</span></a>
 					</li>
 				</ul>
 			</div>
@@ -52,9 +57,6 @@
 					</li>
 					<li class="custom-8">
 						<a href="#"><span><i class="far fa-check-circle custom-7"></i>Confirmed</span></a>
-					</li>
-					<li class="custom-8">
-						<a href="#"><span><i class="fas fa-history custom-7"></i>History</span></a>
 					</li>
 				</ul>
 			</div>
@@ -72,54 +74,60 @@
 					<form action="/action_page.php">
 						<input class="rounded-pill" type="search" id="site-search" name="q" placeholder="  Search">
 					</form>
-                </div>
-	<div class="card custom-11 d-flex">
-    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Deliveries</h3>
-    <div class="card-body">
-        <div id="table" class="table-editable">
-            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x"
-                aria-hidden="true"></i></a>
-            </span>
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-                <tr>
-                    <th class="text-center">Delivery ID</th>
-                    <th class="text-center">Supplier by</th>
-                    <th class="text-center">Delivered date</th>
-                    <th class="text-center">Delivered by</th>
-                    <th class="text-center">Delivered amount</th>
-                    <th class="text-center">Term</th>
-                    <th class="text-center">Action</th>
-                </tr>
-            <?php
-                while($rows = mysql_fetch_assoc($result))
-                {
-            ?>
-                <tr>
-                    <td><?php echo $rows['Delivery_ID'] ?></td>
-                    <td><?php echo $rows['Supp_ID'] ?></td>
-                    <td><?php echo $rows['Delivered_date'] ?></td>
-                    <td><?php echo $rows['Delivered_by'] ?></td>
-                    <td><?php echo $rows['Delivered_amount'] ?></td>
-                    <td><?php echo $rows['Term'] ?></td>
-                    <td>
-                        <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">View</button></span>
-                    </td>
-                </tr>
-            <?php
-                }
-            ?>
-            </table>
-        </div>
+				</div>
+				
+				<div class="card custom-11 d-flex">
+  <div class="card-body">
+    <div id="table" class="">
+      <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
+        <tr>
+          <th class="text-center">Delivery ID</th>
+          <th class="text-center" id="product-name">Product Names</th>
+          <th class="text-center">Delivered by</th>
+          <th class="text-center">Term</th>
+			<th class="text-center">Status</th>
+          <th class="text-center">Action</th>
+        </tr>
+        <tr>
+
+	<?php
+			while($rows = mysql_fetch_assoc($result))
+			{
+	?>
+			<tr>
+				<td>D-<?php echo $rows['Delivery_ID'] ?></td>
+				<td><?php echo $rows['Delivered_by'] ?></td>
+				<td><?php echo $rows['Delivered_amount'] ?></td>
+				<td><?php echo $rows['Term'] ?> Days</td>
+				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+				<td>
+            	<span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+								...
+				</div>
+				</div>
+				</div>
+          		</td>
+			</tr>
+	<?php
+			}
+	?>
+		 
+      </table>
     </div>
-    </div>            
-    </div>
-    </div>
+  </div>
+</div>			
+</div>
+</div>
 		
 	<!--Jquery, PopperJS and BootstrapJS-->	
 	<script src="jquery\jquery-3.3.1.min.js"></script>
     <script src="popper-js\popper.min.js"></script>
     <script src="js\bootstrap.min.js"></script>
 	<script src="js\JavaScript.js"></script>
+	<script src="js\preloader.js"></script>
 		
 	</body>
 </html>
