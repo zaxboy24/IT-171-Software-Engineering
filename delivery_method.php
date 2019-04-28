@@ -8,7 +8,8 @@
       $result = mysqli_query($connect, $query);  
       $output .= '  
       <div class="table-responsive">  
-           <table class="table table-bordered table-padding="5" table-m">
+           <table class="table table-bordered table-hover table-m">
+               <thead class="thead-dark">
                <tr>
                     <th class="text-center"><label>Product ID</label></th>
                     <th class="text-center"><label>Delivery ID</label></th>
@@ -16,7 +17,8 @@
                     <th class="text-center"><label>Quantity Delivered</label></th>
                     <th class="text-center"><label>Quantity Accepted</label></th>
                     <th class="text-center"><label>Accepted by</label></th>
-                </tr>';  
+                </tr>
+                </thead>';  
       while($row = mysqli_fetch_array($result))  
       {  
            $output .= '  

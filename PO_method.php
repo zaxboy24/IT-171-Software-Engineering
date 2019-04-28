@@ -1,3 +1,8 @@
+<style>
+     table, th, td {
+      border: 1px solid black;
+}
+</style>
 <?php  
  if(isset($_POST["Pur_ord_id"]))  
  {  
@@ -8,7 +13,7 @@
       $result = mysqli_query($connect, $query);  
       $output .= '  
       <div class="table-responsive">  
-           <table class="table table-bordered table-padding="5"">';  
+           <table class="table table-bordered">';  
       while($row = mysqli_fetch_array($result))  
       {  
            $output .= '
@@ -24,7 +29,7 @@
                      <td>'.$row['Pur_ord_id'].'</td>
                 </tr>  
     
-                <tr>  
+                <tr class="tr-bordered">  
                      <td colspan="1"><label>Quantity</label></td>  
                      <td>'.$row['Quantity'].' pcs</td>
                      <td colspan="1"><label>Estimated Amount</label></td>  

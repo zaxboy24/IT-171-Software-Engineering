@@ -80,15 +80,17 @@
   <div class="card-body">
     <div id="table" class="">
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
-        <tr>
+        <thead class="thead-dark">
+				<tr>
           <th class="text-center">Purchase Order ID</th>
           <th class="text-center">Approved by</th>
           <th class="text-center">Prepared by</th>
 					<th class="text-center">Estimated Cost</th>
 					<th class="text-center">Date Approve</th>
-		  <th class="text-center">Status</th>
+		  		<th class="text-center">Status</th>
           <th class="text-center">Action</th>
         </tr>
+				</thead>
         <?php
             while($rows = mysql_fetch_array($result))
             {

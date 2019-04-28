@@ -81,7 +81,8 @@
   <div class="card-body">
     <div id="table" class="">
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
-        <tr>
+        <thead class="thead-dark">
+		<tr>
           			<th class="text-center header-color">Delivery ID</th>
 					<th class="text-center header-color">Supplier ID</th>
 					<th class="text-center header-color">Delivered amount</th>
@@ -90,7 +91,7 @@
           			<th class="text-center header-color">Delivered by</th>
           			<th class="text-center header-color">Action</th>
         </tr>
-        <tr>
+        </thead>
 
 	<?php
 			while($rows = mysql_fetch_assoc($result))
@@ -105,11 +106,11 @@
 				<td><?php echo $rows['Delivered_by'] ?></td>
 				<td>
 					<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Delivery_ID"]; ?>" value = "View">
-        </td>
+        	</td>
 			</tr>
-	<?php
+		<?php
 			}
-	?>
+		?>
 		 
       </table>
     </div>

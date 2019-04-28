@@ -84,12 +84,14 @@
     <div class="card-body">
     <div id="table" class="">
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
-        <tr>
-          <th class="text-center">Supplier ID</th>
-          <th class="text-center" id="product-name">Supplier Name</th>
-          <th class="text-center">Supplier Address</th>
-          <th class="text-center">Action</th>
-        </tr>
+        <thead class="thead-dark">
+			<tr>
+				<th class="text-center">Supplier ID</th>
+				<th class="text-center" id="product-name">Supplier Name</th>
+				<th class="text-center">Supplier Address</th>
+				<th class="text-center">Action</th>
+        	</tr>
+		</thead>
         <?php
             while($rows = mysql_fetch_assoc($result))
             {
