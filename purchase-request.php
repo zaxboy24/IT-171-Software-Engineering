@@ -100,15 +100,15 @@
             {
         ?>
             <tr>
-								<td>P0-<?php echo $rows['Pur_ord_id'] ?></td>
-								<td><?php echo $rows['Approved_by'] ?></td>
+				<td>P0-<?php echo $rows['Pur_ord_id'] ?></td>
+				<td><?php echo $rows['Approved_by'] ?></td>
                 <td><?php echo $rows['Prepared_by'] ?></td>
-								<td>₱<?php echo $rows['Estemated_cost'] ?></td>
-								<td><?php echo $rows['Date_approved'] ?></td>
-								<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
-								<td>
-									<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
-          			</td>
+				<td>₱<?php echo $rows['Estemated_cost'] ?></td>
+				<td><?php echo $rows['Date_approved'] ?></td>
+				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+				<td>
+					<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
+     			</td>
             </tr>
         <?php
             }
@@ -126,8 +126,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="jquery\jquery-3.3.1.min.js"></script>
-  <script src="popper-js\popper.min.js"></script>
-  <script src="js\bootstrap.min.js"></script>
+    <script src="popper-js\popper.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
 	<script src="js\JavaScript.js"></script>
 	<script src="js\preloader.js"></script>
 	
