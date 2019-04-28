@@ -16,7 +16,6 @@
                     <th class="text-center"><label>Quantity Delivered</label></th>
                     <th class="text-center"><label>Quantity Accepted</label></th>
                     <th class="text-center"><label>Accepted by</label></th>
-                    <th class="text-center"><label>Action</label></th>
                 </tr>';  
       while($row = mysqli_fetch_array($result))  
       {  
@@ -28,9 +27,6 @@
                     <td>'.$row['Qty_delivered'].'</td>
                     <td>'.$row['Qty_accepted'].'</td>
                     <td colspan="1">'.$row['Accepted_by'].'</td>
-                    <td>
-					<button type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="bobo">View</button>
-                    </td>  
                 ';  
       }  
       $output .= "</table></div>";  

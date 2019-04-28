@@ -1,7 +1,7 @@
 <?php
 
     include_once ('dbconnector.php');
-    $query = "SELECT * from purchase_order A, purchase_order_product B, ware_house_product C
+    $query = "SELECT DISTINCT A.Pur_ord_id, A.Approved_by, A.Prepared_by, A.Estemated_cost, A.Date_approved from purchase_order A, purchase_order_product B, ware_house_product C
 		WHERE A.Pur_ord_id = B.Pur_ord_id and B.Product_ID = C.Product_ID";
     $result = mysql_query($query);
 ?>

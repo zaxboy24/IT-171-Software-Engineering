@@ -1,7 +1,7 @@
 <?php
 
     include_once ('dbconnector.php');
-    $query = "SELECT C.Delivery_ID, D.Supp_ID, C.Delivered_amount, C.Delivered_date, C.Term, C.Delivered_by FROM ware_house_product A,delivery_product B, delivery C, supplier D
+    $query = "SELECT DISTINCT C.Delivery_ID, D.Supp_ID, C.Delivered_amount, C.Delivered_date, C.Term, C.Delivered_by FROM ware_house_product A,delivery_product B, delivery C, supplier D
 		WHERE A.product_id = B.product_id AND B.delivery_id = C.delivery_id and C.Supp_ID = D.Supp_ID ";
     $result = mysql_query($query);
 ?>
@@ -82,13 +82,13 @@
     <div id="table" class="">
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
         <tr>
-          <th class="text-center">Delivery ID</th>
-					<th class="text-center">Supplier ID</th>
-					<th class="text-center">Delivered amount</th>
-					<th class="text-center">Delivered Date</th>
-					<th class="text-center">Term</th>
-          <th class="text-center">Delivered by</th>
-          <th class="text-center">Action</th>
+          			<th class="text-center header-color">Delivery ID</th>
+					<th class="text-center header-color">Supplier ID</th>
+					<th class="text-center header-color">Delivered amount</th>
+					<th class="text-center header-color">Delivered Date</th>
+					<th class="text-center header-color">Term</th>
+          			<th class="text-center header-color">Delivered by</th>
+          			<th class="text-center header-color">Action</th>
         </tr>
         <tr>
 
@@ -128,7 +128,7 @@
 	</body>
 </html>
 <div id="dataModal" class="modal fade">  
-      <div class="modal-dialog">  
+      <div class="modal-dialog modal-lg">  
            <div class="modal-content">  
                 <div class="modal-header">   
                     <h4 class="modal-title text-center">Delivery Details</h4>  
