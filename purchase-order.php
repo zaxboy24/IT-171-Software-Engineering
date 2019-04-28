@@ -40,10 +40,10 @@
 						<a href="manage_supply.php"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
 					<li class="nav-item custom-3 dropdown">
-						<a href="#l" class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="color: #FFD700"><i class="fas fa-clipboard-list"></i> Purchase List</span></a>
+						<a href="#l" class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="color: #FFD700"><i class="fas fa-clipboard-list"></i> Purchase Order</span></a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item text-dark" href="purchase-request.php">Purchase Request</a>
-							<a class="dropdown-item text-dark" href="purchase-order.php">Purchase Orders</a>
+							<a class="dropdown-item text-dark" href="#">Purchase Orders</a>
 						</div>
 					</li>
 					<li class="nav-item custom-3">
