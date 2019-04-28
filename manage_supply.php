@@ -1,8 +1,7 @@
 <?php
 
     include_once ('dbconnector.php');
-    $query = "SELECT * from purchase_order A, purchase_order_product B, ware_house_product C
-		WHERE A.Pur_ord_id = B.Pur_ord_id and B.Product_ID = C.Product_ID";
+    $query = "SELECT * from Supplier";
     $result = mysql_query($query);
 ?>
 <!DOCTYPE html>
@@ -20,8 +19,8 @@
 	<body>
 	
 		<div class="loader">
-    <img src="images\preloader.gif" alt="Loading..." />
-	</div>
+		<img src="images\preloader.gif" alt="Loading..." />
+		</div>
 	
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
@@ -30,7 +29,7 @@
 					<li class="nav-item pl-4 pr-4">
 						<a href="profile.html" >Profile</a>
 					</li >
-						<li class="nav-item pl-4-pr-4">
+					<li class="nav-item pl-4-pr-4">
 						<a href="#">Sign-out</a>
 					</li>
 				</ul>
@@ -38,10 +37,10 @@
 			<div class= "custom-1 custom-2">
 				<ul class="nav li list-unstyled d-flex justify-content-center custom-3">
 					<li class="nav-item custom-3">
-						<a href="manage_supply.php"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
+						<a href="#"><span style="color: #FFD700"><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
 					<li class="nav-item custom-3">
-						<a href="purchase-order.php"><span style="color: #FFD700"><i class="fas fa-clipboard-list"></i> Purchasing</span></a>
+						<a href="purchase-order.php"><span><i class="fas fa-clipboard-list"></i> Purchasing</span></a>
 					</li>
 					<li class="nav-item custom-3">
 						<a href="delivery.php"><span><i class="fas fa-truck"></i> Deliveries</span></a>
@@ -54,10 +53,14 @@
 			<div class="custom-5">
 				<ul class="list-unstyled">
 					<li class="custom-8">
-						<a href="#"><span><i class="far fa-clock custom-7"></i> Pending</span></a>
-					</li>
-					<li class="custom-8">
-						<a href="#"><span><i class="far fa-check-circle custom-7"></i>Confirmed</span></a>
+						<a class= href="#" class="custom-button"><button type="button" class=" btn-sm rounded-pill btn-outline-info" data-toggle="modal" data-target=".bd-example-modal-lg"><span><i class="fas fa-cart-plus"></i>  Add Supply</span></button></a>
+						<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									...
+								</div>
+							</div>
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -76,85 +79,74 @@
 						<input class="rounded-pill" type="search" id="site-search" name="q" placeholder="  Search">
 					</form>
 				</div>
-				
-				<div class="card custom-11 d-flex">
-  <div class="card-body">
+			</div>
+        </div>	
+    <div class="card-body">
     <div id="table" class="">
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
         <tr>
-          <th class="text-center">Purchase Order ID</th>
-          <th class="text-center">Approved by</th>
-          <th class="text-center">Prepared by</th>
-					<th class="text-center">Estimated Cost</th>
-					<th class="text-center">Date Approve</th>
-		  <th class="text-center">Status</th>
+          <th class="text-center">Supplier ID</th>
+          <th class="text-center" id="product-name">Supplier Name</th>
+          <th class="text-center">Supplier Address</th>
           <th class="text-center">Action</th>
         </tr>
         <?php
-            while($rows = mysql_fetch_array($result))
+            while($rows = mysql_fetch_assoc($result))
             {
         ?>
             <tr>
-								<td>P0-<?php echo $rows['Pur_ord_id'] ?></td>
-								<td><?php echo $rows['Approved_by'] ?></td>
-                <td><?php echo $rows['Prepared_by'] ?></td>
-								<td>₱<?php echo $rows['Estemated_cost'] ?></td>
-								<td><?php echo $rows['Date_approved'] ?></td>
-								<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
-								<td>
-									<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
-          			</td>
+				<td>PID-<?php echo $rows['Supp_ID'] ?></td>
+				<td><?php echo $rows['Supp_name'] ?></td>
+                <td><?php echo $rows['Supp_address'] ?></td>
+                <td>
+					<input type="button" class="btn btn-info btn-xs btn primary view_data" name="view" id="<?php echo $rows["Supp_ID"]; ?>" value = "View items">
+          		</td>
             </tr>
         <?php
             }
         ?>
-</table>
+		
+	</table>
 				</div>
-		</div>
-	</div>	
-	</div>
-</div>
-	
-
+			</div>
+			</div>	
+			</div>
+		</div>	
 		
 	<!--Jquery, PopperJS and BootstrapJS-->	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="jquery\jquery-3.3.1.min.js"></script>
-  <script src="popper-js\popper.min.js"></script>
-  <script src="js\bootstrap.min.js"></script>
+    <script src="popper-js\popper.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
 	<script src="js\JavaScript.js"></script>
 	<script src="js\preloader.js"></script>
-	
-	
+		
 	</body>
 </html>
-
 <div id="dataModal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
                 <div class="modal-header">   
-                    <h4 class="modal-title text-center">Purchase Order Details</h4>  
+                    <h4 class="modal-title text-center">Supplier Item Details</h4>  
                 </div>  
-                <div class="modal-body" id="purchase_order_detail">  
+                	<div class="modal-body" id="supplier_detail">
                 </div>  
                 <div class="modal-footer">  
-                     <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
+                    <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
                 </div>  
            </div>  
       </div>  
  </div>	
 
-<script>  
+ <script>  
     $(document).ready(function(){  
         $('.view_data').click(function(){  
-            var Pur_ord_id = $(this).attr("id");  
+            var Supp_ID = $(this).attr("id");  
             $.ajax({  
-                url:"PO_method.php",  
-                method:"post",  
-                data:{Pur_ord_id:Pur_ord_id},  
+                url:"supplier_method.php",  
+                method:"post",
+                data:{Supp_ID:Supp_ID},  
                 success:function(data){  
-                     $('#purchase_order_detail').html(data);  
+                     $('#supplier_detail').html(data);  
                      $('#dataModal').modal("show");  
                 }  
            });  

@@ -1,7 +1,8 @@
 <?php
 
     include_once ('dbconnector.php');
-    $query = "SELECT * FROM Delivery";
+    $query = "SELECT C.Delivery_ID, D.Supp_ID, C.Delivered_amount, C.Delivered_date, C.Term, C.Delivered_by FROM ware_house_product A,delivery_product B, delivery C, supplier D
+		WHERE A.product_id = B.product_id AND B.delivery_id = C.delivery_id and C.Supp_ID = D.Supp_ID ";
     $result = mysql_query($query);
 ?>
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
 			<div class= "custom-1 custom-2">
 				<ul class="nav li list-unstyled d-flex justify-content-center custom-3">
 					<li class="nav-item custom-3">
-						<a href="#"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
+						<a href="manage_supply.php"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
 					<li class="nav-item custom-3">
 						<a href="purchase-order.php"><span><i class="fas fa-clipboard-list"></i> Purchase Orders</span></a>
@@ -82,10 +83,11 @@
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
         <tr>
           <th class="text-center">Delivery ID</th>
-          <th class="text-center" id="product-name">Product Names</th>
+					<th class="text-center">Supplier ID</th>
+					<th class="text-center">Delivered amount</th>
+					<th class="text-center">Delivered Date</th>
+					<th class="text-center">Term</th>
           <th class="text-center">Delivered by</th>
-          <th class="text-center">Term</th>
-			<th class="text-center">Status</th>
           <th class="text-center">Action</th>
         </tr>
         <tr>
@@ -96,20 +98,14 @@
 	?>
 			<tr>
 				<td>D-<?php echo $rows['Delivery_ID'] ?></td>
-				<td><?php echo $rows['Delivered_by'] ?></td>
-				<td><?php echo $rows['Delivered_amount'] ?></td>
+				<td>D-<?php echo $rows['Supp_ID'] ?></td>
+				<td><?php echo $rows['Delivered_amount'] ?>pcs</td>
+				<td><?php echo $rows['Delivered_date'] ?></td>
 				<td><?php echo $rows['Term'] ?> Days</td>
-				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
+				<td><?php echo $rows['Delivered_by'] ?></td>
 				<td>
-            	<span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" data-target=".bd-example-modal-lg">View</button></span>
-				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-								...
-				</div>
-				</div>
-				</div>
-          		</td>
+					<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Delivery_ID"]; ?>" value = "View">
+        </td>
 			</tr>
 	<?php
 			}
@@ -131,3 +127,33 @@
 		
 	</body>
 </html>
+<div id="dataModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">   
+                    <h4 class="modal-title text-center">Delivery Details</h4>  
+                </div>  
+                <div class="modal-body" id="delivery_detail">  
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>	
+ <script>  
+    $(document).ready(function(){  
+        $('.view_data').click(function(){  
+            var Delivery_ID = $(this).attr("id");  
+            $.ajax({  
+                url:"delivery_method.php",  
+                method:"post",  
+                data:{Delivery_ID:Delivery_ID},  
+                success:function(data){  
+                     $('#delivery_detail').html(data);  
+                     $('#dataModal').modal("show");  
+                }  
+           });  
+      });  
+ });  
+ </script>
