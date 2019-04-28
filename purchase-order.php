@@ -39,8 +39,12 @@
 					<li class="nav-item custom-3">
 						<a href="manage_supply.php"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
-					<li class="nav-item custom-3">
-						<a href="purchase-order.php"><span style="color: #FFD700"><i class="fas fa-clipboard-list"></i> Purchasing</span></a>
+					<li class="nav-item custom-3 dropdown">
+						<a href="#l" class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="color: #FFD700"><i class="fas fa-clipboard-list"></i> Purchase List</span></a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item text-dark" href="#">Purchase Request</a>
+							<a class="dropdown-item text-dark" href="#">Purchase Orders</a>
+						</div>
 					</li>
 					<li class="nav-item custom-3">
 						<a href="delivery.php"><span><i class="fas fa-truck"></i> Deliveries</span></a>
