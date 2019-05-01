@@ -9,7 +9,7 @@
 	<head>
 		<title>Supply Hub</title>
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" type="text/css" href="font-awesome\fontawesome-free-5.8.1-web\css\all.css">
+		<link rel="stylesheet" type="text/css" href="fontawesome-free-5.8.1-web\css\all.css">
 		<link rel="stylesheet" type="text/css" href="css\sample.css">
 		<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css\preloader.css">
@@ -18,9 +18,9 @@
 	 </head>
 	<body>
 	
-		<div class="loader">
-		<img src="images\preloader.gif" alt="Loading..." />
-		</div>
+		<!-- <div class="loader">
+			<img src="images\preloader.gif" alt="Loading..." />
+		</div> -->
 	
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
@@ -34,13 +34,18 @@
 					</li>
 				</ul>
 			</div>
+			
 			<div class= "custom-1 custom-2">
 				<ul class="nav li list-unstyled d-flex justify-content-center custom-3">
 					<li class="nav-item custom-3">
-						<a href="#"><span style="color: #FFD700"><i class="fas fa-box-open"></i> Manage Supply</span></a>
+						<a href="manage_supply.php"><span style="color: #FFD700"><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
-					<li class="nav-item custom-3">
-						<a href="purchase-order.php"><span><i class="fas fa-clipboard-list"></i> Purchasing</span></a>
+					<li class="nav-item custom-3 dropdown">
+						<a href="#l" class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span ><i class="fas fa-clipboard-list"></i> Purchasing</span></a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item text-dark" href="purchase-request.php">Purchase Request</a>
+							<a class="dropdown-item text-dark" href="purchase-order.php">Purchase Orders</a>
+						</div>
 					</li>
 					<li class="nav-item custom-3">
 						<a href="delivery.php"><span><i class="fas fa-truck"></i> Deliveries</span></a>
@@ -97,7 +102,7 @@
             {
         ?>
             <tr>
-				<td>PID-<?php echo $rows['Supp_ID'] ?></td>
+				<td>S-<?php echo $rows['Supp_ID'] ?></td>
 				<td><?php echo $rows['Supp_name'] ?></td>
                 <td><?php echo $rows['Supp_address'] ?></td>
                 <td>
@@ -128,7 +133,7 @@
       <div class="modal-dialog">  
            <div class="modal-content">  
                 <div class="modal-header">   
-                    <h4 class="modal-title text-center">Supplier Item Details</h4>  
+                    <h4 class="modal-title text-center">Supplier Item Details</h4><button type="button" class="close" data-dismiss="modal">&times;</button> 
                 </div>  
                 	<div class="modal-body" id="supplier_detail">
                 </div>  
