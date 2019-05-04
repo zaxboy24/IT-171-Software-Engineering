@@ -88,13 +88,14 @@
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
         <thead class="thead-dark">
 		<tr>
-          			<th class="text-center header-color">Delivery ID</th>
+          <th class="text-center header-color">Delivery ID</th>
 					<th class="text-center header-color">Supplier ID</th>
 					<th class="text-center header-color">Delivered amount</th>
 					<th class="text-center header-color">Delivered Date</th>
 					<th class="text-center header-color">Term</th>
-          			<th class="text-center header-color">Delivered by</th>
-          			<th class="text-center header-color">Action</th>
+          <th class="text-center header-color">Delivered by</th>
+					<th class="text-center header-color">Status</th>
+          <th class="text-center header-color">Action</th>
         </tr>
         </thead>
 
@@ -109,6 +110,7 @@
 				<td><?php echo $rows['Delivered_date'] ?></td>
 				<td><?php echo $rows['Term'] ?> Days</td>
 				<td><?php echo $rows['Delivered_by'] ?></td>
+				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Accepted</span></td>
 				<td>
 					<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Delivery_ID"]; ?>" value = "View">
         	</td>

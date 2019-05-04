@@ -89,10 +89,10 @@
           <th class="text-center">Purchase Order ID</th>
           <th class="text-center">Approved by</th>
           <th class="text-center">Prepared by</th>
-					<th class="text-center">Estimated Cost</th>
+					<th class="text-center">Total Cost</th>
 					<th class="text-center">Date Approve</th>
 		  		<th class="text-center">Status</th>
-          <th class="text-center">Action</th>
+          <th class="text-center" colspan="3">Action</th>
         </tr>
 				</thead>
         <?php
@@ -106,8 +106,9 @@
 								<td>₱<?php echo $rows['Estemated_cost'] ?></td>
 								<td><?php echo $rows['Date_approved'] ?></td>
 								<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
-								<td>
-									<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
+								<td colspan="3">
+									<input type="button" class="btn-info btn-xs rounded-pill primary view_data float-left" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
+									<button type="button" class="btn-xs btn-default btn-danger rounded-pill">Delete</button>
           			</td>
             </tr>
         <?php

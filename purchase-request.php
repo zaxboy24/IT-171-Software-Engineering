@@ -67,6 +67,7 @@
 			<div class="custom-6 container-fluid">
 				<div class="d-flex justify-content-between custom-9">
 					<div class="dropdown">
+						<div clas>
 						<form action="/action_page.php">
 							<select size="1" placeholder="Sort by" name="" class="rounded-pill">
 								<option value="" disabled selected>Sort by</option>
@@ -74,6 +75,7 @@
 								<option value=''>Oldest</option>
 							</select>
 						</form>
+						</div>
 					</div>
 					<form action="/action_page.php">
 						<input class="rounded-pill" type="search" id="site-search" name="q" placeholder="  Search">
@@ -131,17 +133,51 @@
 	</body>
 </html>
 
+<!-- <div id="add_datamodal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title text-center">Create Purchase Order</h4><button type="button" class="close" data-dismiss="modal">&times;</button> 
+			</div>
+				<form method="post" id="insert_form">
+					<label></label>
+				</form>
+		</div>
+	</div>
+</div> -->
+
 <div id="dataModal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
                 <div class="modal-header">	
                     <h4 class="modal-title text-center">Purchase Request Details</h4><button type="button" class="close" data-dismiss="modal">&times;</button>  
-                </div>  
-                <div class="modal-body" id="purchase_request_detail">  
-                </div> 
-                <div class="modal-footer">  
-                     <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
-                </div>  
+				</div>
+					
+                		<div class="modal-body" id="purchase_request_detail"> 
+					  
+				</div>
+				<div>
+					<form action="insert_PO.php" method="post" name="addform">
+							<label><b>Prepared by:</b></label> 
+								<select name="Prepname" required>
+									<option value="" disabled selected>Staff</option>
+									<option value='Monkey D Lufy'>Monkey D Lufy</option>
+									<option value='Ronoa Zoro'>Ronoa Zoro</option>
+									<option value='Nico Robin'>Nico Robin</option>
+								</select>
+							<label><b>Approved by:</b></label>
+									<select name="Appname" required>
+										<option value="" disabled selected>Manager</option>
+										<option value='Monkey D Lufy'>Edward Newgate</option>
+										<option value='Ronoa Zoro'>Gol D Roger</option>
+										<option value='Nico Robin'>Senguoko Duddha</option>
+									</select>
+				</div> 
+                <div class="modal-footer">
+					<button type="submit" class="btn btn-default btn-success" formtarget="addform">Create PO</button> 
+                    <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
+				</div>
+				</form>  
            </div>  
       </div>  
  </div>	
