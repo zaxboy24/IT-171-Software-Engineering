@@ -15,7 +15,7 @@
       {  
           $output .= '
           <div class="d-flex justify-content-between">
-               <label><b><span>Supplier name:</span></b></label><span><p>'.$rows['Supp_name'].'</p></span>
+               <label><b>Supplier name:</b></label><p>'.$rows['Supp_name'].'</p> 
                <label><b>Approved by:</b></label><p>'.$rows['Approved_by'].'</p>
           </div>     
           <div class="d-flex justify-content-between">

@@ -10,10 +10,10 @@
 	<head>
 		<title>Supply Hub</title>
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" type="text/css" href="fontawesome-free-5.8.1-web\css\all.css">
-		<link rel="stylesheet" type="text/css" href="css\sample.css">
-		<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css\preloader.css">
+		<link rel="stylesheet" type="text/css" href="..\fontawesome-free-5.8.1-web\css\all.css">
+		<link rel="stylesheet" type="text/css" href="..\css\sample.css">
+		<link rel="stylesheet" type="text/css" href="..\css\bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="..\css\preloader.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
 	 </head>
@@ -25,7 +25,7 @@
 	
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
-				<a class="text-dark navbar-brand" href="#"><span><img class="custom-12" src="images\icon-2.png"> Supply Hub</span></a>
+				<a class="text-dark navbar-brand" href="#"><span><img class="custom-12" src="..\images\icon-2.png"> Supply Hub</span></a>
 				<ul class="nav li list-unstyled">
 					<li class="nav-item pl-4 pr-4">
 						<a href="profile.html" >Profile</a>
@@ -39,17 +39,13 @@
 			<div class= "custom-1 custom-2">
 				<ul class="nav li list-unstyled d-flex justify-content-center custom-3">
 					<li class="nav-item custom-3">
-						<a href="manage_supply.php"><span ><i class="fas fa-box-open"></i> Manage Supply</span></a>
-					</li>
-					<li class="nav-item custom-3 dropdown">
-						<a href="#l" class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span ><i class="fas fa-clipboard-list"></i> Purchasing</span></a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item text-dark" href="purchase-request.php">Purchase Request</a>
-							<a class="dropdown-item text-dark" href="purchase-order.php">Purchase Orders</a>
-						</div>
+						<a href="manage_supply_supplier.php"><span ><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
 					<li class="nav-item custom-3">
-						<a href="delivery.php"><span style="color: #FFD700"><i class="fas fa-truck"></i> Deliveries</span></a>
+						<a href="purchase-order_supplier.php"><span ><i class="fas fa-list-alt"></i> Purchase Order</span></a>
+					</li>
+					<li class="nav-item custom-3">
+					<a href="delivery_supplier.php"><span style="color: #FFD700"><i class="fas fa-truck"></i> Deliveries</span></a>
 					</li>
 				</ul>
 			</div>
@@ -130,17 +126,18 @@
 </div>
 		
 	<!--Jquery, PopperJS and BootstrapJS-->	
-	<script src="jquery\jquery-3.3.1.min.js"></script>
-    <script src="popper-js\popper.min.js"></script>
-    <script src="js\bootstrap.min.js"></script>
-	<script src="js\JavaScript.js"></script>
-	<script src="js\preloader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="..\jquery\jquery-3.3.1.min.js"></script>
+  <script src="..\popper-js\popper.min.js"></script>
+  <script src="..\js\bootstrap.min.js"></script>
+	<script src="..\js\JavaScript.js"></script>
+	<script src="..\js\preloader.js"></script>
+	
 		
 	</body>
 </html>
-
-<!----------------------------------------------------------- ADD DATA MODAL ----------------------------------------------------->
-
+<!------------------------------- Add Data --------------------------------------- -->
 <div id="add_datamodal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -149,8 +146,13 @@
 			</div>
 			<div class="modal-body">
 				<form method="post" id="insert_form">
-				<label><b>Delivered Amount</b></label>
-					<input type="text" name="term" id="term" class="form-control" placeholder="Enter amount" required>
+				<label><b>Products</b></label>
+					<select name="product name" class="form-control" required>
+									<option value="" disabled selected>Products</option>
+									<option value='Milo'>Milo</option>
+									<option value='Sabon'>Sabon</option>
+									<option value='Cellphone'>Cellphone</option>
+					</select>
 					<br>
 				<label><b>Terms</b></label>
 					<input type="text" name="term" id="term" class="form-control" placeholder="Enter Days" required>
@@ -163,7 +165,7 @@
 									<option value='Nico Robin'>Nico Robin</option>
 					</select>
 					<br>
-					<input type="submit" name="insert" id="insert" value="Create" class="btn-success btn-default"/>
+					<input type="submit" name="insert" id="insert" value="Create" class="btn btn-success"/>
 				</form>
 				</div>
 				<div class="modal-footer">
@@ -172,7 +174,7 @@
 		</div>
 	</div>
 </div>
-<!-- <---------------------------------------------------------- SHOW DATA MODAL ----------------------------------------------------->
+<!-- --------------------------------------------- Show Data ------------------------------------------- -->
 <div id="dataModal" class="modal fade">  
       <div class="modal-dialog modal-lg">  
            <div class="modal-content">  

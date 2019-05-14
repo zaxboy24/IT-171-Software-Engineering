@@ -8,10 +8,10 @@
 	<head>
 		<title>Supply Hub</title>
 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" type="text/css" href="fontawesome-free-5.8.1-web\css\all.css">
-		<link rel="stylesheet" type="text/css" href="css\sample.css">
-		<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css\preloader.css">
+		<link rel="stylesheet" type="text/css" href="..\fontawesome-free-5.8.1-web\css\all.css">
+		<link rel="stylesheet" type="text/css" href="..\css\sample.css">
+		<link rel="stylesheet" type="text/css" href="..\css\bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="..\css\preloader.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
 	 </head>
@@ -19,35 +19,31 @@
 	
 		<!-- <div class="loader">
     		<img src="images\preloader.gif" alt="Loading..." />
-		</div> -->
+		</div>  -->
 	
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
-				<a class="text-dark navbar-brand" href="#"><span><img class="custom-12" src="images\icon-2.png"> Supply Hub</span></a>
+				<a class="text-dark navbar-brand" href="#"><span><img class="custom-12" src="..\images\icon-2.png"> Supply Hub</span></a>
 				<ul class="nav li list-unstyled">
 					<li class="nav-item pl-4 pr-4">
 						<a href="profile.html" >Profile</a>
 					</li >
 						<li class="nav-item pl-4-pr-4">
-							<a href="#">Sign-out</a>
-						</li>
+						<a href="#">Sign-out</a>
+					</li>
 				</ul>
 			</div>
 
 			<div class= "custom-1 custom-2">
 				<ul class="nav li list-unstyled d-flex justify-content-center custom-3">
 					<li class="nav-item custom-3">
-						<a href="manage_supply.php"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
-					</li>
-					<li class="nav-item custom-3 dropdown">
-						<a href="#l" class="dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="color: #FFD700"><i class="fas fa-clipboard-list"></i> Purchase Request</span></a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item text-dark" href="purchase-request.php">Purchase Request</a>
-							<a class="dropdown-item text-dark" href="purchase-order.php">Purchase Orders</a>
-						</div>
+						<a href="manage_supply_purchasing_staff.php"><span><i class="fas fa-box-open"></i> Manage Supply</span></a>
 					</li>
 					<li class="nav-item custom-3">
-						<a href="delivery.php"><span><i class="fas fa-truck"></i> Deliveries</span></a>
+						<a href="#"><span style="color: #FFD700"><i class="fas fa-list-alt"></i> Purchase Request</span></a>
+					</li>
+					<li class="nav-item custom-3">
+						<a href="purchase-order_staff.php"><span ><i class="far fa-list-alt"></i> Purchase Orders</span></a>
 					</li>
 				</ul>
 			</div>
@@ -81,7 +77,7 @@
 						<input class="rounded-pill" type="search" id="site-search" name="q" placeholder="  Search">
 					</form>
 				</div>
-				
+				<form action="PR_method.php" method="POST">
 				<div class="card custom-11 d-flex">
 				<div class="card-body">
 				<div id="table" class="">
@@ -95,6 +91,7 @@
                     <th class="text-center">Action</th>
         		</tr>
 				</thead>
+		
         <?php
             while($rows = mysql_fetch_array($result))
             {
@@ -103,54 +100,51 @@
 				<td>PR-<?php echo $rows['Pur_req_id'] ?></td>
 				<td><?php echo $rows['PR_date'] ?></td>
                 <td><?php echo $rows['requested_by'] ?></td>
-				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Ordered</span></td>
+				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
 				<td>
 					<input type="button" class="btn btn-info btn-s btn primary PR_data" name="view" id="<?php echo $rows["Pur_req_id"]; ?>" value = "View">
-				 </td>
-				
+					<input type="hidden" class="button" name="PR_id" value = "<?php echo $rows["Pur_req_id"]; ?>">
+					<input type="submit" class="btn-info btn-s btn btn-danger" name="delete" id="<?php echo $rows["Pur_req_id"]; ?>" value = "Delete">
+     			</td>
             </tr>
         <?php
             }
         ?>
 		</table>
+		
 	</div>
 	</div>
 </div>	
 </div>
 </div>
-	
+</form>
 
 		
 	<!--Jquery, PopperJS and BootstrapJS-->	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="jquery\jquery-3.3.1.min.js"></script>
-    <script src="popper-js\popper.min.js"></script>
-    <script src="js\bootstrap.min.js"></script>
-	<script src="js\JavaScript.js"></script>
-	<script src="js\preloader.js"></script>
+	<script src="..\jquery\jquery-3.3.1.min.js"></script>
+    <script src="..\popper-js\popper.min.js"></script>
+    <script src="..\js\bootstrap.min.js"></script>
+	<script src="..\js\JavaScript.js"></script>
+	<script src="..\js\preloader.js"></script>
+	
+	
 	</body>
 </html>
 
-
-
-<div id="success_modal" class="modal fade">  
-      <div class="modal-dialog">  
-           <div class="modal-content">  
-                <div class="modal-header">	
-                    <h4 class="modal-title text-center"></h4><button type="button" class="close" data-dismiss="modal">&times;</button>  
-				</div>
-                		<div class="modal-body"> 
-						<h4 class="modal-title text-center">Succesfully Created!</h4>
-				</div>
-                <div class="modal-footer">
-					<!-- <button type="submit" class="btn btn-default btn-success" name="save" id="save">Create PO</button>  -->
-                    <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
-				</div>
-				</form>  
-           </div>  
-      </div>  
- </div>
+<!-- <div id="add_datamodal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title text-center">Create Purchase Order</h4><button type="button" class="close" data-dismiss="modal">&times;</button> 
+			</div>
+				<form method="post" id="insert_form">
+					<label></label>
+				</form>
+		</div>
+	</div>
+</div> -->
 
 <div id="dataModal" class="modal fade">  
       <div class="modal-dialog">  
@@ -160,10 +154,9 @@
 				</div>
 					
                 		<div class="modal-body" id="purchase_request_detail"> 
+					  
 				</div>
-				
                 <div class="modal-footer">
-					<!-- <button type="submit" class="btn btn-default btn-success" name="save" id="save">Create PO</button>  -->
                     <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
 				</div>
 				</form>  
