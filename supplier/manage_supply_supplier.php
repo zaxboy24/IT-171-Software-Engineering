@@ -126,6 +126,7 @@
 	</body>
 </html>
 
+
 <!-- <----------------------------------------- ADD PRODUCT ----------------------->
 <div id="add_datamodal" class="modal fade">
 	<div class="modal-dialog">
@@ -146,13 +147,22 @@
 					<br>
 					<label><b>Supplier</b></label>
 					<select name="supp_name" id="supp_name" class="form-control" required>
-									<option value="" disabled selected>Supplier</option>
-									<option value='1'>Chester Segovia</option>
-									<option value='2'>Kobe Atinen</option>
-									<option value='3'>Paring Benoor</option>
+							<option value="" disabled selected>Supplier</option>
+					<?php
+	
+						$query = "SELECT * from Supplier";
+						$result = mysql_query($query);
+						while($row = mysql_fetch_assoc($result))
+						{
+							$option .='<option value='.$row['Supp_ID'].'>'.$row['Supp_name'].'</option>';
+						
+					
+					}
+					echo $option;
+					?>
 					</select>
 					<br>
-					<input type="submit" name="insert" id="insert" value="ADD" class="btn-success btn-default"/>
+					<input type="submit" name="insert" id="insert" value="ADD +" class="btn btn-success "/>
 				</form>
 				</div>
 				<div class="modal-footer">

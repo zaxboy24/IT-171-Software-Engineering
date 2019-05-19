@@ -54,21 +54,7 @@
 			</div>
 		</div>
 		
-		<div class="container-fluid d-flex custom-4">
-			<div class="custom-5">
-				<ul class="list-unstyled">
-					<li class="custom-8">
-						<a class= href="#" class="custom-button"><button type="button" class=" btn-sm rounded-pill btn-outline-info" data-toggle="modal" data-target="#add_datamodal"><span><i class="fas fa-cart-plus"></i>  Add Supply</span></button></a>
-						<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-lg">
-								<div class="modal-content">
-									...
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
+
 			<div class="custom-6 container-fluid">
 				<div class="d-flex justify-content-between custom-9">
 					<div class="dropdown">

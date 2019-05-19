@@ -26,7 +26,6 @@
            <table class="table table-bordered table-hover table-m">
                <thead class="thead-dark">
                <tr>
-                    <th class="text-center" ><label>Product ID</label></th>
                     <th class="text-center"><label>Product Name</label></th>
                     <th class="text-center"><label>Quantity Delivered</label></th>
                     <th class="text-center"><label>Quantity Accepted</label></th>
@@ -37,11 +36,17 @@
       {  
            $output .= '  
                <tr>  
-                    <td>'.$row['Product_ID'].' <input type="hidden" name="prod_id" value='.$row['Product_ID'].'/></td>
                     <td colspan="1">'.$row['Product_name'].'</td>
                     <td>'.$row['Qty_delivered'].'</td>
                     <td><div contenteditable>'.$row['Qty_accepted'].'</div><input type="hidden" name="qty_acc" value='.$row['Qty_accepted'].'/></td>
-                    <td colspan="1"><div contenteditable>'.$row['Accepted_by'].'</div><input type="hidden" name="accepted" value='.$row['Accepted_by'].'/></td>
+                    <td colspan="1">
+                    <select name="Del_staff" class="form-control" required>
+                        <option value="" disabled selected>Staff</option>
+                        <option value="Naruto Uzumaki">Naruto Uzumaki</option>
+                        <option value="Uchiha Sasuke">Uchiha Sasuke</option>
+                        <option value="Manny Pacquio">Manny Pacquio</option>
+                    </select>    
+                    </td>
                 ';  
       }  
       $output .= "</table></div>";  

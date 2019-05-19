@@ -4,10 +4,10 @@ include_once('dbconnector.php');
 
 if(!empty($_POST))
 {
-    $product_name = mysql_real_escape_string($_POST["product_name"]);
-    $price = mysql_real_escape_string($_POST["price"]);
-    $description = mysql_real_escape_string($_POST["description"]);
-    $supp_name = mysql_real_escape_string($_POST["supp_name"]);
+    $product_name = $_POST["product_name"];
+    $price = $_POST["price"];
+    $description = $_POST["description"];
+    $supp_name = $_POST["supp_name"];
 
     $insert_query ="INSERT INTO ware_house_product(Product_name, Description, Product_price)
     VALUES('$product_name,', '$description', '$price')";

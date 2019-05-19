@@ -20,7 +20,33 @@
 		<!-- <div class="loader">
     		<img src="images\preloader.gif" alt="Loading..." />
 		</div>  -->
-	
+
+
+<!-- ----------------------------------- Delete Modal ------------------------
+<form action="PR_method.php" method="post">
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>				
+				<h4 class="modal-title">Are you sure?</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete these records? This process cannot be undone.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+				<button type="submit" class="btn btn-danger" name="delete" id="$pur_req_id">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>     
+</form> -->
+
+
 		<div class="container-fluid custom-0">
 			<div class="navbar navbar-default custom-1">
 				<a class="text-dark navbar-brand" href="#"><span><img class="custom-12" src="..\images\icon-2.png"> Supply Hub</span></a>
@@ -93,9 +119,10 @@
 				</thead>
 		
         <?php
-            while($rows = mysql_fetch_array($result))
+			while($rows = mysql_fetch_array($result))
             {
         ?>
+				
             <tr>
 				<td>PR-<?php echo $rows['Pur_req_id'] ?></td>
 				<td><?php echo $rows['PR_date'] ?></td>
@@ -104,7 +131,8 @@
 				<td>
 					<input type="button" class="btn btn-info btn-s btn primary PR_data" name="view" id="<?php echo $rows["Pur_req_id"]; ?>" value = "View">
 					<input type="hidden" class="button" name="PR_id" value = "<?php echo $rows["Pur_req_id"]; ?>">
-					<input type="submit" class="btn-info btn-s btn btn-danger" name="delete" id="<?php echo $rows["Pur_req_id"]; ?>" value = "Delete">
+					<!-- <input type="submit" class="btn-info btn-s btn btn-danger" name="delete" id="<?php echo $rows["Pur_req_id"]; ?>" value = "Delete">
+					<button  type="button" class="btn-info btn-s btn btn-danger" name="data_delete" date-toggle="modal" data-target="#myModal">Delete</button> -->
      			</td>
             </tr>
         <?php
@@ -132,6 +160,7 @@
 	
 	</body>
 </html>
+
 
 <!-- <div id="add_datamodal" class="modal fade">
 	<div class="modal-dialog">

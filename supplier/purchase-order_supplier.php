@@ -103,8 +103,7 @@
 								<td><?php echo $rows['Date_approved'] ?></td>
 								<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Confirmed</span></td>
 								<td colspan="3">
-									<input type="button" class="btn-info btn-xs rounded-pill primary view_data float-left" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
-									<button type="button" class="btn-xs btn-default btn-danger rounded-pill">Delete</button>
+									<input type="button" class="btn-info btn-xs rounded-pill  view_data" name="view" id="<?php echo $rows["Pur_ord_id"]; ?>" value = "View">
           			</td>
             </tr>
         <?php

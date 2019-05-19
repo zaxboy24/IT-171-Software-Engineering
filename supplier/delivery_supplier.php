@@ -83,7 +83,6 @@
   <div class="card-body">
     <div id="table" class="table-responsive">
 			<div align="right">
-				<button type="button" class=" btn-sm rounded-pill btn-outline-info" data-toggle="modal" data-target="#add_datamodal" name="add" id="add"><span><i class="fas fa-cart-plus"></i>  Add Delivery</span></button>
 			</div>
       <table class="table table-bordered table-responsive-md table-striped text-center custom-14" width="200%">
         <thead class="thead-dark">
@@ -112,7 +111,8 @@
 				<td><?php echo $rows['Delivered_by'] ?></td>
 				<td class="pt-3-half custom-13"><span class="badge badge-pill badge-success">Accepted</span></td>
 				<td>
-					<input type="button" class="btn btn-info btn-s btn primary view_data" name="view" id="<?php echo $rows["Delivery_ID"]; ?>" value = "View">
+					<input type="button" class=" btn-info btn-xs rounded-pill view_data" name="view" id="<?php echo $rows["Delivery_ID"]; ?>" value = "View">
+					<input type="button" class=" btn-success btn-xs rounded-pill update_data" name="view" id="<?php echo $rows["Delivery_ID"]; ?>" value = "Update">
         	</td>
 			</tr>
 		<?php
@@ -137,43 +137,6 @@
 		
 	</body>
 </html>
-<!------------------------------- Add Data --------------------------------------- -->
-<div id="add_datamodal" class="modal fade">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title text-center">Create Delivery</h4><button type="button" class="close" data-dismiss="modal">&times;</button> 
-			</div>
-			<div class="modal-body">
-				<form method="post" id="insert_form">
-				<label><b>Products</b></label>
-					<select name="product name" class="form-control" required>
-									<option value="" disabled selected>Products</option>
-									<option value='Milo'>Milo</option>
-									<option value='Sabon'>Sabon</option>
-									<option value='Cellphone'>Cellphone</option>
-					</select>
-					<br>
-				<label><b>Terms</b></label>
-					<input type="text" name="term" id="term" class="form-control" placeholder="Enter Days" required>
-					<br>
-					<label><b>Delivered by</b></label>
-					<select name="Delivered by" class="form-control" required>
-									<option value="" disabled selected>Staff</option>
-									<option value='Monkey D Lufy'>Monkey D Lufy</option>
-									<option value='Ronoa Zoro'>Ronoa Zoro</option>
-									<option value='Nico Robin'>Nico Robin</option>
-					</select>
-					<br>
-					<input type="submit" name="insert" id="insert" value="Create" class="btn btn-success"/>
-				</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
-				</div>
-		</div>
-	</div>
-</div>
 <!-- --------------------------------------------- Show Data ------------------------------------------- -->
 <div id="dataModal" class="modal fade">  
       <div class="modal-dialog modal-lg">  

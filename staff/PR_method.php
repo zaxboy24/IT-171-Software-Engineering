@@ -13,7 +13,7 @@
            <table class="table table-bordered table-hover">
                <thead class="thead-dark">
                 <tr>
-                    <th class="text-center"><label>Product ID</label></th>
+                    <th class="text-center"><label>PR ID</label></th>
                     <th class="text-center"><label>Product Name</label></th>
                     <th class="text-center"><label>Quantity Requested</label></th>
                 </tr>
@@ -22,10 +22,11 @@
       {  
           $pur_req_id = $row["Pur_req_id"];
            $output .= '
-                <tr>
-                     <td>P-'.$row['Product_ID'].'</td>
+                <tr>      
+                    <td><input type="checkbox" id= '.$row['Product_ID'].' name='.$row['Product_ID'].' values='.$row['Product_ID'].'></td>  
                      <td>'.$row['Product_name'].'</td>
                      <td>'.$row['Qty_requested'].'pcs</td>
+                     
                 </tr>
                 ';  
       }  
@@ -51,13 +52,21 @@
                <option value='Gol D Roger'>Gol D Roger</option>
                <option value='Senguoko Duddha'>Senguoko Duddha</option>
           </select>
+
      <label><b>Select Supplier:</b></label>
-          <select name="Suppname" class="form-control" required>
-               <option value="" disabled selected>Supplier</option>
-               <option value='1'>Chester Segovia</option>
-               <option value='2'>Kobe Atinen</option>
-               <option value='3'>Paring Benoor</option>
-          </select>
+	     <select name="Suppname" id="Suppname" class="form-control" required>
+			<option value="" disabled selected>Supplier</option>
+			<?php
+                    $option .='';
+				$query1 = "SELECT * from Supplier";
+				$result1 = mysqli_query($connect, $query1);
+				while($row = mysqli_fetch_assoc($result1))
+				{
+					$option .='<option value='.$row['Supp_ID'].'>'.$row['Supp_name'].'</option>';
+				}
+			     echo $option;
+			?>
+		</select>
      
      <br>
      <div>
@@ -67,69 +76,3 @@
 </div>
 
 </form>
-<?php
-if (isset($_POST['delete'])) {
-     $connects = mysqli_connect("localhost", "root", "", "it 171");  
-     $PR_id = (int) $_POST['PR_id'];
-     $deletors = "DELETE FROM purchase_request WHERE purchase_request.Pur_req_id ='$PR_id'";
-     mysqli_query($connects, $deletors);
-//      $success .= '
-//      <div id="dataModal" class="modal fade">  
-//       <div class="modal-dialog">  
-//            <div class="modal-content">  
-//                 <div class="modal-header">	
-                    
-// 				</div>
-					
-//                 		<div class="modal-body" id="purchase_request_detail"><h4 class="modal-title text-center">Succesfully Deleted</h4></div>
-					  
-// 				</div>
-//                 <div class="modal-footer">
-//                     <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>  
-// 				</div>
-// 				</form>  
-//            </div>  
-//       </div>  
-//  </div>';
-
-echo $success;
-     header('location: purchase-request_staff.php');
-}
-
-?>
-
-<!-- <script>
-$(document).ready(function(){
-$('#save').click(function(){
-     var product_id = [];
-     var product_name = [];
-     var product_qty = [];
-     var prepname  = $('.Prepname')
-     var appname  = $('.Appname')
-     var suppname  = $('.Suppname')
-
-     $('.product_id').each(function(){
-          product_id.push($(this).text());
-     });
-     $('.product_name').each(function(){
-          product_name.push($(this).text());
-     });
-     $('.product_qty').each(function(){
-          product_qty.push($(this).text());
-     });
-     $.ajax({
-          url:"insert.php",
-          method:"POST",
-          data:{product_id:product_id, product_name:product_name, product_qty:product_qty,
-               prepname:prepname, appname:appname, suppname:suppname}
-          success:function(data){
-               $('#dataModal').modal('hide');
-               $('#success_modal').modal('show');
-               
-          }
-
-     });
-     
-});
-});
-</script> -->

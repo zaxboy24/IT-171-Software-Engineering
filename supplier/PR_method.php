@@ -23,6 +23,7 @@
                      <td>P-'.$row['Product_ID'].'</td>
                      <td>'.$row['Product_name'].'</td>
                      <td>'.$row['Qty_requested'].'pcs</td>
+
                 </tr>
                 ';  
       }  
