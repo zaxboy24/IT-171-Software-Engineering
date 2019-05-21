@@ -3,16 +3,6 @@ session_Start();
 require 'dbconnector.php';
 require 'registration_insert.php';
 require 'login_insert.php';
-/* require 'insert_user.php'; */
-/* if(isset($_SESSION['email_1'])){
-header('Location: home.php');
-exit;
-}elseif(isset($_SESSION['email_2'])){
-header('Location: homey.php');
-}else{
-header('Location: homex.php');	
-}
- */
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +30,11 @@ header('Location: homex.php');
             <ul class="navbar-nav">
 
               <li class="nav-item  mt-2" style="height: 35px;">
-                <a href="#myModal" class="text-black-50" data-toggle="modal" style="text-decoration: none;">Join Us</a>
+                <a href="#myModal" class="text-black-50" data-toggle="modal" style="text-decoration: none;">Register</a>
+              </li>
+			  
+			  <li class="nav-item  mt-2" style="height: 35px;">
+                <a href="#myModal-Login" class="text-black-50" data-toggle="modal" style="text-decoration: none;">Log-in</a>
               </li>
 
               <li class="nav-item">
@@ -177,15 +171,16 @@ header('Location: homex.php');
 	
 	<!-- Modal -->
 
-		<div id="myModal" class="modal fade">
+	<div id="myModal" class="modal fade">
 	<div class="modal-dialog modal-login">
 		<div class="modal-content">
-			<form action="" method="POST">
+			<form action="" method="POST" id="loginform">
 				<div class="modal-header">				
 					<h4 class="modal-title">Register</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">	
+				<div id="errorDiv1"> </div>
 					<div class="form-group">
 						<label>Email</label>
 						
@@ -199,8 +194,12 @@ header('Location: homex.php');
 						</div>
 						
 						<input type="text" id="username_1" name="username_1" title="This field is required" class="form-control" oninvalid="this.setCustomValidity('Username must be atleast 6 characters long')"
-						oninput="this.setCustomValidity('')" pattern="^[a-z\d\.]{6,}$" required="required" minlength="6" value="">
-						
+						oninput="this.setCustomValidity('')" onkeypress="return AvoidSpace(event)"  required="required" minlength="6" value="">
+						<script>
+							function AvoidSpace(event) 
+							{ var k = event ? event.which : window.event.keyCode;
+							if (k == 32) return false; }
+						</script>
 					</div>
 					<div class="form-group">
 						<label>First Name</label>
@@ -219,8 +218,8 @@ header('Location: homex.php');
 						<div class="input-group-prepend">
 							<span class="input-group-text" name="phonenumber_1" id="basic-addon1">+63</span>
 						</div>
-						<input type="number"pattern="/(7|8|9)\d{9}$/" id="phonenumber_1" name="phonenumber_1"  oninvalid="this.setCustomValidity('Invalid Phone Number')"
-						oninput="this.setCustomValidity('')" class="form-control"  value="" required />
+						<input type="tel" pattern="[0-9]{10}" id="phonenumber_1" name="phonenumber_1"  oninvalid="this.setCustomValidity('Invalid Phone Number')"
+						oninput="this.setCustomValidity('')" class="form-control"  value="" required >
 					</div>
 					<div class="form-group">
 						<div class="clearfix">
@@ -255,38 +254,39 @@ header('Location: homex.php');
 						</div>
 						</div>
 						<?php
-							if(isset($success_message)){
-							echo '<div class="success_message">'.$success_message.'</div>'; 
+							if(isset($success_message_1)){
+							echo '<div class="success_message_1">'.$success_message_1.'</div>'; 
 							}
-							if(isset($error_message)){
-							echo '<div class="error_message">'.$error_message.'</div>'; 
+							if(isset($error_message_1)){
+							echo '<div class="error_message_1">'.$error_message_1.'</div>'; 
 							}
 						?>
 					</div>
 				<div class="modal-footer">
 					<label class="pull-left">Already registered? <a href="#myModal-Login" class="trigger-btn text-primary" data-dismiss="modal" data-toggle="modal">Sign in</a></label>
-					<input type="submit" name="submit_1" id="submit_1" class="btn btn-primary pull-right" value="Register">
+					<button type="button" class="btn btn-primary pull-right btn-register" > Register </button>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>     
 	
-	<!-- Modal for Purchasing Department-->
+	<!-- Modal -->
 	
 	
 	
 	<!-- Modal for Login -->
 	
-			<div id="myModal-Login" class="modal fade">
+	<div id="myModal-Login" class="modal fade">
 	<div class="modal-dialog modal-login">
 		<div class="modal-content">
-			<form action="" method="post">
+			<form action="" method="post" id="loginform">
 				<div class="modal-header">				
 					<h4 class="modal-title">Log-in</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">	
+				<div id="errorDiv1"> </div>
 					<div class="form-group">
 						<label>Email</label>
 						<input type="email" id="email_2" name="email_2" class="form-control" required="required" value="" autofocus>
@@ -294,7 +294,7 @@ header('Location: homex.php');
 					<div class="form-group">
 						<div class="clearfix">
 							<label>Password</label>
-							<a href="#Forgot-Password-Modal" class="trigger-btn text-primary" data-dismiss="modal" data-toggle="modal" class="float-right text-muted"><small>Forgot?</small></a>
+							<!--<a href="#Forgot-Password-Modal" class="trigger-btn text-primary" data-dismiss="modal" data-toggle="modal" class="float-right text-muted"><small>Forgot?</small></a>-->
 						</div>
 						<input type="password" name="password_2_1" class="form-control" minlength="8" id="password_2_1" required="required"><!-- 
 						<span toggle="#inputPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span> -->
@@ -304,7 +304,7 @@ header('Location: homex.php');
 						<div class="form-check-inline" style="padding-left: 30px;">
 							<label class="form-check-label">
 								<input type="radio"
-								name="usertype_2" value="staff" required>Purchasing Staff
+								name="usertype_2" value="staff" required>Purchasing Staff	
 							</label>
 						</div>
 						<div class="form-check-inline" style="padding-left: 10px; ">
@@ -314,6 +314,14 @@ header('Location: homex.php');
 							</label>
 						</div>
 						</div>
+					<?php
+					if(isset($success_message_2)){
+					echo '<div class="success_message">'.$success_message_2.'</div>'; 
+						}
+					if(isset($error_message_2)){
+					echo '<div class="error_message">'.$error_message_2.'</div>'; 
+					}
+					?>	
 				</div>
 				<div class="modal-footer">
 					<label class="checkbox-inline float-left"><input type="checkbox"> Remember me</label>
@@ -328,10 +336,10 @@ header('Location: homex.php');
 	
 	<!-- Modal for Forgot Password -->
 	
-	<div id="Forgot-Password-Modal" class="modal fade">
+	<!-- <div id="Forgot-Password-Modal" class="modal fade">
 	<div class="modal-dialog modal-login">
 		<div class="modal-content">
-			<form action="" method="post">
+			<form action="" method="post" id="lg">
 				<div class="modal-header">				
 					<h4 class="modal-title">Password Reset</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -354,7 +362,7 @@ header('Location: homex.php');
 			</form>
 		</div>
 	</div>
-</div>
+</div> -->
 	
 	<!-- Modal for Forgot Password -->
 	
@@ -366,6 +374,7 @@ header('Location: homex.php');
 	<script src="js\toggle-password.js"></script> -->
 	<script src="js\landing-page-final.js"></script>
 	<script src="js\carousel-landing-page.js"></script>
+	<script src="js\password_validation.js"></script>
 	
 </body>
 	

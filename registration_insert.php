@@ -1,10 +1,10 @@
-<?php
+<?php	
 
  if( isset($_POST['username_1'], $_POST['password_1_1'], $_POST['password_1_2'], $_POST['firstname_1'], $_POST['lastname_1'], $_POST['email_1'], $_POST['usertype_1'], $_POST['address_1'], $_POST['phonenumber_1']) ){	
 
 // CHECK IF FIELDS ARE NOT EMPTY
 
-if(!empty(trim($_POST['username_1'])) && !empty(trim($_POST['password_1_2'])) && !empty(trim($_POST['password_1_1'])) && !empty(trim($_POST['email_1'])) && !empty(trim($_POST['usertype_1']))){
+if(!empty(trim($_POST['username_1'])) && !empty(trim($_POST['password_1_1'])) && !empty(trim($_POST['password_1_2'])) && !empty(trim($_POST['email_1'])) && !empty(trim($_POST['usertype_1']))){
 	
 	
 // Escape special characters.
@@ -27,8 +27,8 @@ if (filter_var($email_1, FILTER_VALIDATE_EMAIL)) {
 
 // CHECK IF EMAIL IS ALREADY REGISTERED
 
-$check_email = mysqli_query($db_connection, "SELECT `email` FROM `users` WHERE email = '$email_1'");
-$check_username = mysqli_query($db_connection, "SELECT `username` FROM `users` WHERE username = '$username_1'");
+$check_email = mysqli_query($db_connection, "SELECT email FROM users WHERE email = '$email_1'");
+$check_username = mysqli_query($db_connection, "SELECT username FROM users WHERE username = '$username_1'");
 
 if(mysqli_num_rows($check_email) > 0){    
 $email_error = "This Email Address is already registered. Please Try another.";
@@ -43,13 +43,14 @@ $user_hash_password = password_hash($_POST['password_1_1'], PASSWORD_DEFAULT);
 
 // INSER USER INTO THE DATABASE
 
-$insert_user = mysqli_query($db_connection, "INSERT INTO users (username, password, firstname, lastname, email, usertype, address) VALUES ('$username_1', '$user_hash_password', '$firstname_1', '$lastname_1', '$email_1', '$usertype_1', '$address_1', '$phonenumber_1')");
+$insert_user = mysqli_query($db_connection, "INSERT INTO users (username, password, firstname, lastname, email, usertype, address, phonenumber) VALUES ('$username_1', '$user_hash_password', '$firstname_1', '$lastname_1', '$email_1', '$usertype_1', '$address_1', '" .$phonenumber_1. "')");
 
 if($insert_user === TRUE){
-$success_message = "Thanks! You have successfully signed up.";
+$success_message_1 = "Thanks! You have successfully signed up.";
+header('Location: insert_here.php'); /* CHANGE REDIRECTION LOCATION */
 }
 else{
-$error_message = "Oops! something wrong.";
+$error_message_1 = "Oops! something wrong.";
 }
 
 }    
@@ -57,8 +58,14 @@ $error_message = "Oops! something wrong.";
 }
 else {
 // IF EMAIL IS INVALID
-$error_message = "Invalid email address";
+$error_message_1 = "Invalid email address";
 }
+
+}
+else{
+// IF FIELDS ARE EMPTY
+
+$error_message_1 = "Please fill in all the required fields.";
 
 }
 
